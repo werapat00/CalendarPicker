@@ -87,7 +87,7 @@ var Day = React.createClass({
             </Text>
           </View>
         );
-      } 
+      }
       else {
         return (
           <View style={styles.dayWrapper}>
@@ -371,7 +371,7 @@ var CalendarPicker = React.createClass({
     minDate: React.PropTypes.instanceOf(Date),
     selectedDate: React.PropTypes.instanceOf(Date).isRequired,
     onDateChange: React.PropTypes.func,
-    screenWidth: React.PropTypes.number,
+    screenWidth: React.PropTypes.number.isRequired,
     startFromMonday: React.PropTypes.bool,
     weekdays: React.PropTypes.array,
     months: React.PropTypes.array,
@@ -436,8 +436,16 @@ var CalendarPicker = React.createClass({
     } = this.state,
       date = new Date(year, month, day);
 
-    this.setState({date: date});
-    this.props.onDateChange(date);
+    if(date.getTime()>this.props.maxDate){
+        this.setState({date: this.props.maxDate});
+        this.props.onDateChange(this.props.maxDate);
+    }else if(date.getTime()<this.props.minDate) {
+        this.setState({date: this.props.minDate});
+        this.props.onDateChange(this.props.minDate);
+    }else {
+        this.setState({date: date});
+        this.props.onDateChange(date);
+    }
   },
 
   render() {
