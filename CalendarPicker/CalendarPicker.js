@@ -320,9 +320,7 @@ var HeaderControls = React.createClass({
 
     var previous;
     if ( this.previousMonthDisabled() ) {
-      previous = (
-        {this.props.previousTitleDisabled}
-      );
+      previous = this.props.previousTitleDisabled;
     }
     else {
       previous = (
@@ -334,9 +332,7 @@ var HeaderControls = React.createClass({
 
     var next;
     if ( this.nextMonthDisabled() ) {
-      next = (
-        {this.props.nextTitleDisabled}
-      );
+      next = this.props.nextTitleDisabled;
     }
     else {
       next = (
@@ -377,6 +373,8 @@ var CalendarPicker = React.createClass({
     months: React.PropTypes.array,
     previousTitle: React.PropTypes.object,
     nextTitle: React.PropTypes.object,
+    previousTitleDisabled: React.PropTypes.object,
+    nextTitleDisabled: React.PropTypes.object,
     selectedDayColor: React.PropTypes.string,
     selectedDayTextColor: React.PropTypes.string,
     scaleFactor: React.PropTypes.number,
@@ -462,6 +460,8 @@ var CalendarPicker = React.createClass({
           months={this.props.months}
           previousTitle={this.props.previousTitle}
           nextTitle={this.props.nextTitle}
+          previousTitleDisabled={this.props.previousTitleDisabled}
+          nextTitleDisabled={this.props.nextTitleDisabled}
           textStyle={this.props.textStyle} />
 
         <WeekDaysLabels
