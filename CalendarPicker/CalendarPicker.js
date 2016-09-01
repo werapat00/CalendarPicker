@@ -321,13 +321,13 @@ var HeaderControls = React.createClass({
     var previous;
     if ( this.previousMonthDisabled() ) {
       previous = (
-        <Text style={[styles.prev, textStyle, styles.disabledTextColor]}>{this.props.previousTitle || 'Previous'}</Text>
+        {this.props.previousTitleDisabled}
       );
     }
     else {
       previous = (
         <TouchableOpacity onPress={this.getPrevious}>
-          <Text style={[styles.prev, textStyle]}>{this.props.previousTitle || 'Previous'}</Text>
+          {this.props.previousTitle}
         </TouchableOpacity>
       );
     }
@@ -335,13 +335,13 @@ var HeaderControls = React.createClass({
     var next;
     if ( this.nextMonthDisabled() ) {
       next = (
-        <Text style={[styles.next, textStyle, styles.disabledTextColor]}>{this.props.nextTitle || 'Next'}</Text>
+        {this.props.nextTitleDisabled}
       );
     }
     else {
       next = (
         <TouchableOpacity onPress={this.getNext}>
-          <Text style={[styles.next, textStyle]}>{this.props.nextTitle || 'Next'}</Text>
+          {this.props.nextTitle}
         </TouchableOpacity>
       );
     }
@@ -375,8 +375,8 @@ var CalendarPicker = React.createClass({
     startFromMonday: React.PropTypes.bool,
     weekdays: React.PropTypes.array,
     months: React.PropTypes.array,
-    previousTitle: React.PropTypes.string,
-    nextTitle: React.PropTypes.string,
+    previousTitle: React.PropTypes.object,
+    nextTitle: React.PropTypes.object,
     selectedDayColor: React.PropTypes.string,
     selectedDayTextColor: React.PropTypes.string,
     scaleFactor: React.PropTypes.number,
