@@ -47,6 +47,7 @@ var styles = StyleSheet.create({
   },
 
   dayLabels: {
+    fontSize: 15,
     textAlign: 'center'
   },
 

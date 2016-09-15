@@ -78,7 +78,21 @@ var Day = React.createClass({
           </View>
         </View>
       );
-    } else {
+    }
+    else if(this.props.currentDay){
+      var selectedDayColorStyle = this.props.currentDayColor ? {backgroundColor: this.props.currentDayColor} : {};
+      var selectedDayTextColorStyle = this.props.currentDayTextColor ? {color: this.props.currentDayTextColor} : {};
+      return (
+          <View style={styles.dayWrapper}>
+              <View style={[styles.dayButtonSelected, selectedDayColorStyle]}>
+                  <Text style={[styles.dayLabel, textStyle, selectedDayTextColorStyle]}>
+                      {this.props.day}
+                  </Text>
+              </View>
+          </View>
+      );
+    }
+    else {
       if (this.props.date < this.props.minDate || this.props.date > this.props.maxDate) {
         return (
           <View style={styles.dayWrapper}>
@@ -119,6 +133,7 @@ var Days = React.createClass({
   },
   getInitialState() {
     return {
+      currentDate: new Date(),
       selectedStates: []
     };
   },
@@ -182,12 +197,15 @@ var Days = React.createClass({
             columns.push(<Day
                       key={j}
                       day={currentDay+1}
+                      currentDay={this.state.currentDate.getDate()==currentDay+1&&this.state.currentDate.getMonth()==month&&this.state.currentDate.getFullYear()==year}
                       selected={this.state.selectedStates[currentDay]}
                       date={new Date(year, month, currentDay + 1)}
                       maxDate={this.props.maxDate}
                       minDate={this.props.minDate}
                       onDayChange={this.onPressDay}
                       screenWidth={this.props.screenWidth}
+                      currentDayColor={this.props.currentDayColor}
+                      currentDayTextColor={this.props.currentDayTextColor}
                       selectedDayColor={this.props.selectedDayColor}
                       selectedDayTextColor={this.props.selectedDayTextColor}
                       textStyle={this.props.textStyle} />);
@@ -470,6 +488,8 @@ var CalendarPicker = React.createClass({
           textStyle={this.props.textStyle} />
 
         <Days
+          currentDayColor={this.props.currentDayColor}
+          currentDayTextColor={this.props.currentDayTextColor}
           maxDate={this.props.maxDate}
           minDate={this.props.minDate}
           month={this.state.month}
