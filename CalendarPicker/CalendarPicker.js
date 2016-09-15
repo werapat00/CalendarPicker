@@ -245,7 +245,7 @@ var WeekDaysLabels = React.createClass({
   render() {
     return (
       <View style={styles.dayLabelsWrapper}>
-        { (this.props.weekdays || WEEKDAYS).map((day, key) => { return <Text key={key} style={[styles.dayLabels, this.props.textStyle]}>{day}</Text>; }) }
+        { (this.props.weekdays || WEEKDAYS).map((day, key) => { return <Text key={key} style={[styles.dayLabels,{fontSize: 12}, this.props.textStyle]}>{day}</Text>; }) }
       </View>
     );
   }
@@ -466,7 +466,7 @@ var CalendarPicker = React.createClass({
 
   render() {
     return (
-      <View style={styles.calendar}>
+      <View style={[styles.calendar,{marginBottom:10}]}>
         <HeaderControls
           maxDate={this.props.maxDate}
           minDate={this.props.minDate}

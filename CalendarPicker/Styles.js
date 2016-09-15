@@ -10,7 +10,7 @@ var StyleSheet = require('react-native').StyleSheet;
 
 var styles = StyleSheet.create({
   calendar: {
-    marginTop: 10
+    marginTop: 10,
   },
   dayWrapper: {
     backgroundColor: 'rgba(0,0,0,0.0)',
@@ -47,7 +47,6 @@ var styles = StyleSheet.create({
   },
 
   dayLabels: {
-    fontSize: 15,
     textAlign: 'center'
   },
 
