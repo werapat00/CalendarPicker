@@ -342,7 +342,7 @@ var HeaderControls = React.createClass({
     }
     else {
       previous = (
-        <TouchableOpacity onPress={this.getPrevious}>
+        <TouchableOpacity style={{flex:1}} onPress={this.getPrevious}>
           {this.props.previousTitle}
         </TouchableOpacity>
       );
@@ -354,7 +354,7 @@ var HeaderControls = React.createClass({
     }
     else {
       next = (
-        <TouchableOpacity onPress={this.getNext}>
+        <TouchableOpacity style={{flex:1}} onPress={this.getNext}>
           {this.props.nextTitle}
         </TouchableOpacity>
       );
