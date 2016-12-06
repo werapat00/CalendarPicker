@@ -281,10 +281,6 @@ var HeaderControls = React.createClass({
         });
     },
 
-    shouldComponentUpdate(nextProps, nextState){
-        return this.state.selectedMonth != nextState.selectedMonth;
-    },
-
     // Logic seems a bit awkawardly split up between here and the CalendarPicker
     // component, eg: getNextYear is actually modifying the state of the parent,
     // could just let header controls hold all of the logic and have CalendarPicker
