@@ -481,7 +481,7 @@ var CalendarPicker = React.createClass({
 
     render() {
         return (
-            <View style={[styles.calendar, {marginBottom: 10}]}>
+            <View style={[styles.calendar]}>
                 <HeaderControls
                     maxDate={this.props.maxDate}
                     minDate={this.props.minDate}

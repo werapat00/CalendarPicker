@@ -9,7 +9,6 @@
 function makeStyles(scaler) {
   return {
     calendar: {
-      height: 320*scaler,
       marginTop: 10*scaler
     },
     dayWrapper: {
