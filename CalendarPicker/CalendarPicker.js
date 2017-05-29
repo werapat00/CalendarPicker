@@ -467,6 +467,10 @@ var CalendarPicker = React.createClass({
             } = this.state,
             date = new Date(year, month, day);
 
+        var maxDateOfMonth = new Date(year, month+1, 0);
+        if(day > maxDateOfMonth.getDate()){
+            date = new Date(year, month, maxDateOfMonth.getDate());
+        }
         if (date.getTime() > this.props.maxDate) {
             this.setState({date: this.props.maxDate});
             this.props.onDateChange(this.props.maxDate);
